@@ -40,6 +40,12 @@ def applicants():
     return render_template('table.html', table=table, keys=CONF["q5_keys"])
 
 
+@app.route('/applicants-and-mentors', methods=['GET'])
+def applicants_and_mentors():
+    table = common.applicants_n_mentors()
+    return render_template('table.html', table=table, keys=CONF["q6_keys"])
+
+
 if __name__ == "__main__":
     app.secret_key = 'magic'
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)

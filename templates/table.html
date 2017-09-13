@@ -15,10 +15,16 @@
             {% for line in table %}
                 <tr>
                     {% for key in keys %}
-                            <td> {{ line[key] }} </td>
+                        {% if line[key] is not none %}
+                        <td><center>{{ line[key] }}</center></td>
+                        {% else %}
+                            <td style="color:red"><center>No data</center></td>
+                        {% endif %}
                     {% endfor %}
                 </tr>
             {% endfor %}
-        </table>
+        </table><br><br>
+        <a href="/">Vissza</a>
+
 </body>
 </html>
